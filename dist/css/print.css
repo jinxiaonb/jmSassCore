@@ -35,7 +35,7 @@
 /* ---------------------------------------*/
 /*inline-block*/
 /*ie6-7 *display:inline;*zoom:1;*/
-/* line 24, ../sass/core/_mixin.scss */
+/* line 24, ../../src/core/_mixin.scss */
 body, div {
   display: inline-block;
   *display: inline;
@@ -59,7 +59,7 @@ body, div {
 /*opacity*/
 /*lite8使用filter兼容*/
 /*triangle*/
-/* line 207, ../sass/core/_mixin.scss */
+/* line 207, ../../src/core/_mixin.scss */
 div {
   overflow: hidden;
   width: 0;
@@ -67,12 +67,16 @@ div {
   content: '';
 }
 
-/* line 6, ../sass/print.scss */
+/*黑色背景色半透明*/
+/*disabled*/
+/*禁用样式，加!important*/
+/*水平间隔线，适用于行列表*/
+/* line 6, ../../src/print.scss */
 body {
   font-size: 14px;
 }
 
-/* line 12, ../sass/print.scss */
+/* line 12, ../../src/print.scss */
 div {
   /*@include clearfix;*/
   border-right: 6 dashed transparent;

@@ -5,10 +5,15 @@ JUMI FE Sass Basic Files
 http://www.w3cplus.com/preprocessor/sass-mixins-function-placeholder.html
 ##
 
+##
 https://github.com/marvin1023/sassCore
+##
 
+##
 http://tobe.w3cplus.com/
+##
 
+<<<<<<< HEAD
 http://www.w3cplus.com/sasscore/index.html
 
 
@@ -56,3 +61,8 @@ inline-images():将图片转为data协议的数据;
 
 compass的坑：
 https://devework.com/sass-compass.html
+=======
+##
+http://www.w3cplus.com/sasscore/index.html
+##
+>>>>>>> b31080a6156241cf7eada309f5e94f3713ec0eea
