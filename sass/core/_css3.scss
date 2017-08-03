@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+
+/* 各个浏览器的属性前缀，true表示开启，false表示不开启*/
+/*-----------------------------------------------------*/
+$prefixForWebkit:        true !default;
+$prefixForMozilla:       true !default;
+$prefixForMicrosoft:     true !default;
+$prefixForOpera:         false !default;
+$prefixNo:               true !default;

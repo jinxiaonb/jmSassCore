@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+
+$gridColumns:        12 !default;
+$gridColumnWidth:    65px !default;
+$gridGutter:         20px !default;
+$gridSystemWidth:    $gridColumns * ($gridColumnWidth + $gridGutter);

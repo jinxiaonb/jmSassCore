@@ -1,0 +1,291 @@
+﻿@charset 'UTF-8';
+
+/*mixin & %*/
+/* 既定义了mixin也定义了%,根据需求使用@include或@extend调用*/
+/* ---------------------------------------*/
+
+/*inline-block*/
+/*ie6-7 *display:inline;*zoom:1;*/
+@mixin inline-block ($extend: true)
+{
+    @if $extend
+    {
+        @extend %inline-block;
+    } @else
+    {
+        display: inline-block;
+        @if $lte7
+        {
+            *display: inline;
+            *zoom: 1;
+        }
+    }
+}
+%inline-block
+{
+    @include inline-block(false);
+}
+
+
+/*block的有宽度margin左右为auto才能居中*/
+@mixin center-block ($extend: true)
+{
+    @if $extend
+    {
+        @extend %center-block;
+    } @else
+    {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+%center-block
+{
+    @include center-block(false);
+}
+
+
+/*float left & right*/
+@mixin float($float: left)
+{
+    float: $float;
+    @if $lte7
+    {
+        display: inline;
+    }
+}
+%float
+{
+    @include float;
+}
+
+
+/*clearfix*/
+/*闭合子元素的浮动*/
+@mixin clearfix ($extend: true)
+{
+    @if $extend
+    {
+        @extend %clearfix;
+    } @else
+    {
+        @if $lte7
+        {
+            *zoom: 1;
+        }
+        &:before,
+        &:after
+        {
+            display: table;
+
+            content: '';
+        }
+        &:after
+        {
+            clear: both;
+        }
+    }
+}
+%clearfix
+{
+    @include clearfix(false);
+}
+
+
+/*既隐藏于视觉也隐藏于屏幕浏览器*/
+@mixin hidden($extend: true)
+{
+    @if $extend
+    {
+        @extend %hidden;
+    } @else
+    {
+        display: none !important;
+        visibility: hidden;
+    }
+}
+%hidden
+{
+    @include hidden(false);
+}
+
+/*只隐藏于视觉，屏幕浏览器可以阅读*/
+@mixin visually-hidden($extend: true)
+{
+    @if $extend
+    {
+        @extend %visually-hidden;
+    }@else
+    {
+        position: absolute;
+
+        clip: rect(1px,1px,1px,1px);/*standard*/
+        @if $lte7
+        {
+            clip: rect(1px 1px 1px 1px);/*ie6/7*/
+        }
+    }
+}
+%visually-hidden
+{
+    @include visually-hidden(false);
+}
+
+
+/*ul has list style*/
+@mixin ul-has-style($style: disc)
+{
+    margin-left: 25px;
+
+    list-style: disc;
+}
+%ul-has-style
+{
+    @include ul-has-style;
+}
+
+
+/*图片替换文字*/
+/*高级浏览器直接2就可以*/
+/*原生7,8不支持color的transparent,所以采用1*/
+/*ie6用1会有一条细线，所以采用3*/
+/*如果要兼容ie6，使用的时候请确定元素设置高度。*/
+@mixin ir($height: 99)
+{
+    font: 0/0 a;/*1*/
+
+    color: transparent;/*2*/
+    border: 0 none;
+    text-shadow: none;
+    @if $lte7
+    {
+        _overflow: hidden;/*3*/
+        _font-size: 10px;/*3*/
+        _line-height: $height;/*3*/
+    }
+}
+%ir
+{
+    @include ir;
+}
+
+
+/*text overflow*/
+/*元素可以设置宽度才可应用省略号*/
+%ellipsis-basic
+{
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@mixin ellipsis($width: 100%)
+{
+    width: $width;
+
+    @extend %ellipsis-basic;
+}
+
+
+/*opacity*/
+/*lite8使用filter兼容*/
+@mixin opacity($opacity: 50)
+{
+    opacity: $opacity/100;
+    @if $filter
+    {
+        filter: alpha(opacity=$opacity);
+    }
+}
+%opacity
+{
+    @include opacity;
+}
+
+
+/*triangle*/
+%triangle-basic
+{
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+}
+@mixin triangle($direction,$size,$borderColor)
+{
+    @extend %triangle-basic;
+    @if $direction == top
+    {
+        border-right: $size dashed transparent;
+        border-bottom: $size solid $borderColor;
+        border-left: $size dashed transparent;
+    }
+    @else if $direction == right
+    {
+        border-top: $size dashed transparent;
+        border-bottom: $size dashed transparent;
+        border-left: $size solid $borderColor;
+    }
+    @else if $direction == bottom
+    {
+        border-top: $size solid $borderColor;
+        border-right: $size dashed transparent;
+        border-left: $size dashed transparent;
+    }
+    @else if $direction == left
+    {
+        border-top: $size dashed transparent;
+        border-right: $size solid $borderColor;
+        border-bottom: $size dashed transparent;
+    }
+}
+
+
+/*黑色背景色半透明*/
+@mixin bgcolor-alpha($bgcolor: rgba(0,0,0,.5))
+{
+    color: #fff;
+    background-color: $bgcolor;
+    @if $filter
+    {
+        filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
+    }@else
+    {
+        background-color: #333;
+    }
+}
+%bgcolor-alpha
+{
+    @include bgcolor-alpha;
+}
+
+
+/*disabled*/
+/*禁用样式，加!important*/
+@mixin disabled($bgColor: #e6e6e6, $textColor:#ababab)
+{
+    cursor: not-allowed !important;
+
+    color: $textColor !important;
+    background-color: $bgColor !important;
+}
+%disabled
+{
+    @include disabled;
+}
+
+
+/*水平间隔线，适用于行列表*/
+@mixin horizontal-line($border: 1px dashed $gray,$padding:10px)
+{
+    padding-top: $padding;
+    padding-bottom: $padding;
+
+    border-bottom: $border;
+}
+%horizontal-line
+{
+    @include horizontal-line;
+}

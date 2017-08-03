@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+
+/*开关设置*/
+$lte7:               true !default;/*是否兼容ie6-7*/
+$filter:             false !default;/*是否为ie6-8开启css3滤镜兼容，常用语渐变北京*//**/
+$printStyleSwitch:   false !default;/*是否开启打印样式*/
+
+
+$baseFontSize:       14px !default;
+$baseLineHeight:     1.5 !default;
+$baseFontFamily:     "Helvetica Neue", Helvetica, Tahoma, sans-serif !default;
+$fontCn:             "SimSun";/*宋体*/
+$fontYaHei:          "Microsoft Yahei";/*微软雅黑*/
+$fontHeiTi:          "SimHei";/*黑体*/
+
+
+
+/*元素上下间距*/
+$baseGap:            20px !default;
+
+
+
+
+/*基本颜色*/
+$black:              #000 !default;
+$grayDarker:         #333 !default;
+$grayDark:           #999 !default;
+$gray:               #ccc !default;
+$grayLight:          #f5f5f5 !default;
+$white:              #fff !default;
+
+
+$red:                #cc3300 !default;
+$blue:               #00a3cf !default;
+$blueDark:           #0064cd !default;
+$orange:             #f47837 !default;
+$green:              #51b148 !default;
+$yellow:             #ffc40d !default;
+$pink:               #c3325f !default;
+$purple:             #7a43b6 !default;
+
+
+$primary:            #0078e7 !default;/*主色*/
+
+
+
+
+/*link*/
+$linkColor:          #08c !default;
+
+
+
+/*scaffolding*/
+$bodyBgColoe:        $white !default;
+$textColor:          $grayDarker !default;
+
+
+/*是否输出表达的占位符样式，文本色*/
+$placeholder:        true $gray !default;
+
+
+/*交互配色*/
+/*警告，错误，成功，提示*/
+
+/*--------------------------------------*/
+/*每个变了都有三个颜色值：分别为：文本色，背景色，边框色*/
+$warningColor:       #514721 #fff6bf #ffd324 !default;
+$errorColor:         #8a1f11 #fbe3e4 #fbc2c4 !default;
+$successColor:       #264409 #e6efc2 #c6d880 !default;
+$infoColor:          #205791 #d5edf8 #92cae4 !default;
+
+
+
+/*radius*/
+/*--------------------------------------*/
+$baseRadius:         5px !default;
+$smallRadius:        3px !default;
+
+
+
+/*z-index*/
+/*--------------------------------------*/
+$zindexDropdown:     1000 !default;
+$zindexFixedTopbar:  1010 !default;
+$zindexTooltip:      1020 !default;
+$zindexAlert:        1030 !default;
+$zindexModal:        1100 !default;

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/*------------------------------------------*/
+/* author:     风霄圣兮()*/
+/* version:    1.0*/
+/* time:       2017-08-02*/
+/* url:        http://www.brotherxiao.com  https://github.com/jinxiaonb*/
+/*------------------------------------------*/
+/*导入基础文件*/
+/*开关设置*/
+/*是否兼容ie6-7*/
+/*是否为ie6-8开启css3滤镜兼容，常用语渐变北京*/
+/**/
+/*是否开启打印样式*/
+/*宋体*/
+/*微软雅黑*/
+/*黑体*/
+/*元素上下间距*/
+/*基本颜色*/
+/*主色*/
+/*link*/
+/*scaffolding*/
+/*是否输出表达的占位符样式，文本色*/
+/*交互配色*/
+/*警告，错误，成功，提示*/
+/*--------------------------------------*/
+/*每个变了都有三个颜色值：分别为：文本色，背景色，边框色*/
+/*radius*/
+/*--------------------------------------*/
+/*z-index*/
+/*--------------------------------------*/
+/* 各个浏览器的属性前缀，true表示开启，false表示不开启*/
+/*-----------------------------------------------------*/
+/*mixin & %*/
+/* 既定义了mixin也定义了%,根据需求使用@include或@extend调用*/
+/* ---------------------------------------*/
+/*inline-block*/
+/*ie6-7 *display:inline;*zoom:1;*/
+/* line 24, ../sass/core/_mixin.scss */
+body, div {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*block的有宽度margin左右为auto才能居中*/
+/*float left & right*/
+/*clearfix*/
+/*闭合子元素的浮动*/
+/*既隐藏于视觉也隐藏于屏幕浏览器*/
+/*只隐藏于视觉，屏幕浏览器可以阅读*/
+/*ul has list style*/
+/*图片替换文字*/
+/*高级浏览器直接2就可以*/
+/*原生7,8不支持color的transparent,所以采用1*/
+/*ie6用1会有一条细线，所以采用3*/
+/*如果要兼容ie6，使用的时候请确定元素设置高度。*/
+/*text overflow*/
+/*元素可以设置宽度才可应用省略号*/
+/*opacity*/
+/*lite8使用filter兼容*/
+/*triangle*/
+/* line 207, ../sass/core/_mixin.scss */
+div {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  content: '';
+}
+
+/* line 6, ../sass/print.scss */
+body {
+  font-size: 14px;
+}
+
+/* line 12, ../sass/print.scss */
+div {
+  /*@include clearfix;*/
+  border-right: 6 dashed transparent;
+  border-bottom: 6 solid #coo;
+  border-left: 6 dashed transparent;
+}

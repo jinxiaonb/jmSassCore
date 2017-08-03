@@ -1,0 +1,9 @@
+
+
+@mixin screen($resMin, $resMax)
+{
+    @media screen and (min-width: $resMin) and (max-width: $resMax)
+    {
+        @content;
+    }
+}
